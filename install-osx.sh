@@ -2,11 +2,24 @@
 
 # Software I need on every mac system
 
-# Install homebrew itself
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# Prereqs from Apple
+sudo softwareupdate -i -a
+xcode-select --install
 
 brew update
 brew upgrade
+
+# OS X GUI apps
+brew install caskroom/cask/brew-cask
+brew cask install aquamacs
+brew cask install dropbox
+brew cask install firefox
+brew cask install google-chrome
+brew cask install google-drive
+brew cask install google-hangouts
+brew cask install virtualbox
+brew cask install vlc
+brew cask install handbrake
 
 # Basic command line utilities
 brew install git
@@ -29,6 +42,7 @@ brew install scalastyle
 
 # OS X GUI apps
 brew install caskroom/cask/brew-cask
+brew cask install aquamacs
 brew cask install dropbox
 brew cask install firefox
 brew cask install google-chrome
