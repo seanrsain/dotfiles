@@ -5,18 +5,6 @@
 brew update
 brew upgrade
 
-# OS X GUI apps
-brew install caskroom/cask/brew-cask
-brew cask install aquamacs
-brew cask install dropbox
-brew cask install firefox
-brew cask install google-chrome
-brew cask install google-drive
-brew cask install google-hangouts
-brew cask install virtualbox
-brew cask install vlc
-brew cask install handbrake
-
 # Basic command line utilities
 brew install git
 brew install node
@@ -50,3 +38,5 @@ brew cask install handbrake
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+echo install-osx.sh complete.
