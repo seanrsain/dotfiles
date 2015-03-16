@@ -162,7 +162,7 @@
                ((string-match "chris.simpkins@gatech.edu" from)
                 "gatech")
                ((string-match "chris@proscuba.training" from)
-                "prost)
+                "prost")
                ((string-match "chris@simpkins.org" from)
                 "chris@simpkins.org")
                ((string-match "management@2061kinridgetrail.com" from)
