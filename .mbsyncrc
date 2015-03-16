@@ -1,0 +1,74 @@
+# Global defaults
+Sync all
+Create Both
+CopyArrivalDate yes
+
+
+##############################################################################
+IMAPAccount gmail
+Host imap.gmail.com
+User chris.simpkins@gmail.com
+PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/^machine imap.gmail.com/ {print $8}'"
+UseIMAPS yes
+
+IMAPStore gmail-imap
+Account gmail
+
+MaildirStore gmail-local
+# you have to manually create ~/Maildir/gmail/
+Path ~/Maildir/gmail/
+# Inbox required, even if one specifies  :gmail-local:INBOX
+# otherwise it goes in ~/Maildir
+Inbox ~/Maildir/gmail/Inbox
+
+Channel gmail
+Master :gmail-imap:
+Slave :gmail-local:
+Patterns *
+SyncState *
+
+##############################################################################
+IMAPAccount chris@simpkins.org
+Host sub4.mail.dreamhost.com
+User chris@simpkins.org
+PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/chris@simpkins.org/ {print $8}'"
+UseIMAPS yes
+
+IMAPStore chris@simpkins.org-imap
+Account chris@simpkins.org
+
+MaildirStore chris@simpkins.org-local
+# you have to manually create ~/Maildir/chris@simpkins.org/
+Path ~/Maildir/chris@simpkins.org/
+# Inbox required, even if one specifies  :chris@simpkins.org-local:INBOX
+# otherwise it goes in ~/Maildir
+Inbox ~/Maildir/chris@simpkins.org/Inbox
+
+Channel chris@simpkins.org
+Master :chris@simpkins.org-imap:
+Slave :chris@simpkins.org-local:
+Patterns *
+SyncState *
+
+##############################################################################
+IMAPAccount management@2061kinridgetrail.com
+Host sub4.mail.dreamhost.com
+User management@2061kinridgetrail.com
+PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/management@2061kinridgetrail.com/ {print $8}'"
+UseIMAPS yes
+
+IMAPStore management@2061kinridgetrail.com-imap
+Account management@2061kinridgetrail.com
+
+MaildirStore management@2061kinridgetrail.com-local
+# you have to manually create ~/Maildir/management@2061kinridgetrail.com/
+Path ~/Maildir/management@2061kinridgetrail.com/
+# Inbox required, even if one specifies  :management@2061kinridgetrail.com-local:INBOX
+# otherwise it goes in ~/Maildir
+Inbox ~/Maildir/management@2061kinridgetrail.com/Inbox
+
+Channel management@2061kinridgetrail.com
+Master :management@2061kinridgetrail.com-imap:
+Slave :management@2061kinridgetrail.com-local:
+Patterns *
+SyncState *
