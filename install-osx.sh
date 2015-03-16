@@ -2,10 +2,6 @@
 
 # Software I need on every mac system
 
-# Prereqs from Apple
-sudo softwareupdate -i -a
-xcode-select --install
-
 brew update
 brew upgrade
 
