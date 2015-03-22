@@ -15,3 +15,13 @@
 ;; Try to get rid of Aquamacs's insistence on turning on auto-fill everywhere
 (turn-off-auto-fill)
 (remove-hook 'text-mode-hook #'turn-on-auto-fill)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Org-mode
+(setq org-default-notes-file (concat org-directory "~/Documents/capture.org"))
+     (define-key global-map "\C-cc" 'org-capture)
+
+;; Graphviz dot language
+(org-babel-do-load-languages
+     'org-babel-load-languages
+     '((dot . t)))
