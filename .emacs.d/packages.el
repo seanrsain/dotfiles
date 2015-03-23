@@ -9,6 +9,9 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(setq package-list '(ensime yasnippet expand-region multiple-cursors))
+(mapc 'package-install package-list)
+
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 

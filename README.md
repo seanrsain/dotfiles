@@ -22,6 +22,13 @@ You may need to restart your computer after executing the commands above.  After
 3. Clone this repository
 4. ``cd`` to the ``dotfiles`` directory created by cloning this repository
 5. Run ``install-osx.sh``
-6. Run ``options-osx.sh``
-7. Run ``setup.sh``
-8. Run ``link-dotfiles.sh``
+6. Run ``customize-osx.sh``
+
+## Ubuntu
+
+## General
+
+After doing the platform-specific installations and customizations above, do the following.
+
+1. Run ``install-general.sh``
+2. Run ``link-dotfiles.sh``

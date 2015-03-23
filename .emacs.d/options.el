@@ -2,7 +2,8 @@
 (setq visible-bell 1)
 (setq-default indent-tabs-mode nil)
 (setq show-paren-mode 1)
-(tool-bar-mode 0)
+(if window-system
+    (tool-bar-mode 0))
 (global-linum-mode t)
 (setq linum-format "%3d ")
 (setq visual-line-mode t)
