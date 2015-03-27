@@ -11,7 +11,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(setq package-list '(ensime yasnippet expand-region multiple-cursors))
+(setq package-list '(ensime yasnippet expand-region multiple-cursors graphviz-dot-mode))
 (mapc 'package-install package-list)
 
 (require 'ensime)

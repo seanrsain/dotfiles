@@ -3,7 +3,8 @@
 (setq-default indent-tabs-mode nil)
 (setq show-paren-mode 1)
 (if window-system
-    (tool-bar-mode 0))
+    (progn (tool-bar-mode 0)
+           (tabbar-mode 0)))
 (global-linum-mode t)
 (setq linum-format "%3d ")
 (setq visual-line-mode t)
@@ -19,8 +20,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org-mode
-(setq org-default-notes-file (concat org-directory "~/Documents/capture.org"))
-     (define-key global-map "\C-cc" 'org-capture)
+;; (setq org-default-notes-file (concat org-directory "~/Documents/capture.org"))
+;;      (define-key global-map "\C-cc" 'org-capture)
 
 ;; Graphviz dot language
 (org-babel-do-load-languages
