@@ -35,6 +35,7 @@ brew cask install google-hangouts
 brew cask install virtualbox
 brew cask install vlc
 brew cask install handbrake
+brew cask install mactex
 
 # Remove outdated versions from the cellar.
 brew cleanup
