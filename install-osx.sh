@@ -15,16 +15,20 @@ brew install webkit2png
 brew install graphviz
 brew install gpg2
 brew install isync
-# Note: make sure the emacs invoked by a simple emacs command is Examcs 24.
-brew install mu --with-emacs --HEAD
+# This is the best emacs for Mac OSX.
+# See https://github.com/railwaycat/homebrew-emacsmacport
+brew tap railwaycat/emacsmacport
+brew install emacs-mac
 
-# Languages and developement libs
+# Programming languages
 brew install scala
 brew install sbt
 brew install typesafe-activator
 brew install scalastyle
+brew install ocaml
+brew install opam
 
-# OS X GUI apps
+# Os X GUI apps
 brew install caskroom/cask/brew-cask
 brew cask install aquamacs
 brew cask install dropbox
