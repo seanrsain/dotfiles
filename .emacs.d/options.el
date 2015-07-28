@@ -10,10 +10,12 @@
 (setq-default visual-line-fringe-indicators '(nil nil))
 (setq-default word-wrap t)
 (setq-default column-number-mode t)
+(show-paren-mode 1)
 (setq-default ispell-program-name "/usr/local/bin/ispell")
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (global-set-key (kbd "M-j") 'join-line)
 (global-set-key (kbd "M-g") 'goto-line)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; From http://www.emacswiki.org/emacs/SmoothScrolling
 ;; Scroll one line at a time (less "jumpy" than defaults)
@@ -21,6 +23,10 @@
 (setq-default mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq-default mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq-default scroll-step 1) ;; keyboard scroll one line at a time
+
+;; Account for size of gutter and fringes
+(add-to-list 'initial-frame-alist '(width . 88))
+(add-to-list 'default-frame-alist '(width . 88))
 
 ;; Try to get rid of Aquamacs's insistence on turning on auto-fill everywhere
 ;; (turn-off-auto-fill)

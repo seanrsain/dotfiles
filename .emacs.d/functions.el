@@ -9,3 +9,9 @@
 
 ;; Handy key definition
 (define-key global-map "\C-\M-Q" 'unfill-region)
+
+(defun my-set-frame-width ()
+  (interactive)
+  (set-frame-width (selected-frame) (cdr (assoc 'width default-frame-alist))))
+
+(define-key global-map "\C-z" 'my-set-frame-width)
