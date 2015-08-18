@@ -11,6 +11,7 @@
 (setq-default word-wrap t)
 (setq-default column-number-mode t)
 (show-paren-mode 1)
+(delete-selection-mode 1)
 (setq-default ispell-program-name "/usr/local/bin/ispell")
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (global-set-key (kbd "M-j") 'join-line)
