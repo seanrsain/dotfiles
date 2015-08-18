@@ -11,6 +11,7 @@ brew install node
 brew install wget --with-iri
 brew install imagemagick --with-webp
 brew install tree
+brew install ispell
 brew install webkit2png
 brew install graphviz
 brew install gpg2
