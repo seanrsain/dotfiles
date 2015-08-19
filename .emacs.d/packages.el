@@ -40,6 +40,13 @@
 (global-git-gutter+-mode t)
 
 (require 'yasnippet)
+(setq yas-snippet-dirs
+      '(;; personal snippets
+        "~/.emacs.d/snippets"
+        ;; You'll need to clone https://github.com/AndreaCrotti/yasnippet-snippets
+        ;; and customize this based on where you clone it.
+        "~/vcs/github.com/AndreaCrotti/yasnippet-snippets"
+        ))
 (yas-global-mode 1)
 
 (add-hook 'after-init-hook 'global-company-mode)
