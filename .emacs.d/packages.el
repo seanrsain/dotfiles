@@ -13,6 +13,8 @@
 
 (setq package-list
       '(ensime
+        yasnippet
+        company
         expand-region
         multiple-cursors
         graphviz-dot-mode
@@ -36,3 +38,8 @@
 
 (require 'git-gutter-fringe+)
 (global-git-gutter+-mode t)
+
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(add-hook 'after-init-hook 'global-company-mode)
