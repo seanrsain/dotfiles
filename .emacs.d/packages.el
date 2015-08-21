@@ -37,7 +37,7 @@
 (require 'graphviz-dot-mode)
 
 (require 'git-gutter-fringe+)
-(global-git-gutter+-mode t)
+(if window-system (global-git-gutter+-mode t))
 
 (require 'yasnippet)
 (setq yas-snippet-dirs
