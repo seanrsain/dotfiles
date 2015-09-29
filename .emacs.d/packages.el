@@ -14,6 +14,7 @@
 (setq package-list
       '(ensime
         yasnippet
+        emmet-mode
         company
         expand-region
         multiple-cursors
@@ -47,6 +48,19 @@
         ;; and customize this based on where you clone it.
         "~/vcs/github.com/AndreaCrotti/yasnippet-snippets"
         ))
+(define-key yas-minor-mode-map (kbd "\t") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "C-M-y") 'yas-expand)
+
+;;keys for navigation
+(define-key yas-keymap [(tab)]       nil)
+(define-key yas-keymap (kbd "TAB")   nil)
+(define-key yas-keymap [(shift tab)] nil)
+(define-key yas-keymap [backtab]     nil)
+(define-key yas-keymap (kbd "C-M-y") 'yas-next-field-or-maybe-expand)
+(define-key yas-keymap (kbd "C-M-Y") 'yas-prev)
 (yas-global-mode 1)
 
 (add-hook 'after-init-hook 'global-company-mode)
+
+(require 'emmet-mode)
