@@ -16,6 +16,8 @@ brew install webkit2png
 brew install graphviz
 brew install gpg2
 brew install isync
+# Also installs ghc, cabal-install, gmp
+brew install pandoc
 # This is the best emacs for Mac OSX.
 # See https://github.com/railwaycat/homebrew-emacsmacport
 brew tap railwaycat/emacsmacport
