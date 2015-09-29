@@ -1,4 +1,5 @@
 ;; Basics
+(set-face-attribute 'default nil :height 140)
 (setq-default visible-bell 1)
 (setq-default indent-tabs-mode nil)
 (setq-default show-paren-mode 1)
@@ -14,6 +15,8 @@
 (delete-selection-mode 1)
 (setq-default ispell-program-name "/usr/local/bin/ispell")
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Keybindings
 (global-set-key (kbd "M-j") 'join-line)
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-x g") 'magit-status)
