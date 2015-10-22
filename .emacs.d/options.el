@@ -5,7 +5,6 @@
 (setq-default show-paren-mode 1)
 (if window-system (tool-bar-mode 0))
 (if (boundp 'aquamacs-version) (tabbar-mode 0))
-(global-linum-mode t)
 (setq-default linum-format "%4d ")
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (setq-default visual-line-fringe-indicators '(nil nil))
@@ -15,6 +14,34 @@
 (delete-selection-mode 1)
 (setq-default ispell-program-name "/usr/local/bin/ispell")
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; UTF-8 everywhere
+(prefer-coding-system 'utf-8)
+(set-language-environment 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+
+;; linum-mode everywhere, except where it doesn't belong
+(require 'linum)
+(setq linum-disabled-modes-list '(eshell-mode
+                                  wl-summary-mode
+                                  compilation-mode
+                                  dired-mode
+                                  speedbar-mode
+                                  mu4e-main-mode
+                                  mu4e-about-mode
+                                  mu4e-view-mode
+                                  mu4e-headers-mode
+                                  doc-view-mode))
+(defun linum-on ()
+  (unless (or (minibufferp)
+              (member major-mode linum-disabled-modes-list)
+            (and (not (eq (buffer-name) "*scratch*"))
+                 (string-match "*" (buffer-name))))
+    (linum-mode 1)))
+(global-linum-mode 1)
+(setq linum-eager nil)
 
 ;; Keybindings
 (global-set-key (kbd "M-j") 'join-line)
