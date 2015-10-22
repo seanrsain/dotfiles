@@ -49,6 +49,7 @@
      (smtpmail-smtp-server "sub4.mail.dreamhost.com")
      (mu4e-compose-signature (concat
                               "Chris Simpkins\n"
+                              "Mobile: 404-663-4946\n"
                               "http://proscuba.training/\n")))
     ("chris@simpkins.org"
      (mu4e-sent-folder "/chris@simpkins.org/Sent Messages")
@@ -94,7 +95,16 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Viewing
+;; Headers view
+
+(setq mu4e-headers-fields
+    '( (:human-date     .  10)    ;; alternatively, use :human-date
+       (:flags          .   6)
+       (:from           .  22)
+       (:thread-subject .  nil))) ;; alternatively, use :subject
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Viewing Messages
 
 ;; render html as html
 (require 'mu4e-contrib)
