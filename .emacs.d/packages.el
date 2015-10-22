@@ -14,7 +14,6 @@
 (setq package-list
       '(ensime
         yasnippet
-        emmet-mode
         company
         expand-region
         multiple-cursors
@@ -62,5 +61,3 @@
 (yas-global-mode 1)
 
 (add-hook 'after-init-hook 'global-company-mode)
-
-(require 'emmet-mode)
