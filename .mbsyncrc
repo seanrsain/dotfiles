@@ -8,8 +8,14 @@ CopyArrivalDate yes
 IMAPAccount gmail
 Host imap.gmail.com
 User chris.simpkins@gmail.com
+# Create with: gpg2 --output .authinfo.gpg --symmetric .authinfo
 PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/^machine imap.gmail.com/ {print $8}'"
-UseIMAPS yes
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions SSLv3
+CertificateFile ~/certs/gmail.crt
+CertificateFile ~/certs/google.crt
+CertificateFile ~/certs/Equifax.crt
 
 IMAPStore gmail-imap
 Account gmail
@@ -32,7 +38,13 @@ IMAPAccount chris@simpkins.org
 Host sub4.mail.dreamhost.com
 User chris@simpkins.org
 PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/chris@simpkins.org/ {print $8}'"
-UseIMAPS yes
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions SSLv3
+CertificateFile ~/certs/mail.dreamhost.com.crt
+CertificateFile ~/certs/dreamhost-ca.crt
+CertificateFile ~/certs/usertrust.crt
+CertificateFile ~/certs/addtrust.crt
 
 IMAPStore chris@simpkins.org-imap
 Account chris@simpkins.org
@@ -55,7 +67,13 @@ IMAPAccount management@2061kinridgetrail.com
 Host sub4.mail.dreamhost.com
 User management@2061kinridgetrail.com
 PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/management@2061kinridgetrail.com/ {print $8}'"
-UseIMAPS yes
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions SSLv3
+CertificateFile ~/certs/mail.dreamhost.com.crt
+CertificateFile ~/certs/dreamhost-ca.crt
+CertificateFile ~/certs/usertrust.crt
+CertificateFile ~/certs/addtrust.crt
 
 IMAPStore management@2061kinridgetrail.com-imap
 Account management@2061kinridgetrail.com

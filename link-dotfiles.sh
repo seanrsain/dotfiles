@@ -4,3 +4,4 @@ ln -sfv "$DOTFILES_DIR/.bash_profile" ~
 ln -sfv "$DOTFILES_DIR/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/.mbsyncrc" ~
 ln -sfv "$DOTFILES_DIR/.emacs.d" ~
+ln -sfv "$DOTFILES_DIR/certs" ~
