@@ -34,7 +34,7 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-(require 'graphviz-dot-mode)
+;(require 'graphviz-dot-mode)
 
 (require 'git-gutter-fringe+)
 (if window-system (global-git-gutter+-mode t))
