@@ -34,6 +34,33 @@ Patterns *
 SyncState *
 
 ##############################################################################
+IMAPAccount gatech
+Host mail.gatech.edu
+User gtg034t
+# Create with: gpg2 --output .authinfo.gpg --symmetric .authinfo
+PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/^machine mail.gatech.edu/ {print $8}'"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions SSLv3
+CertificateFile ~/certs/mail.gatech.edu.crt
+
+IMAPStore gatech-imap
+Account gatech
+
+MaildirStore gatech-local
+# you have to manually create ~/Maildir/gatech/
+Path ~/Maildir/gatech/
+# Inbox required, even if one specifies  :gatech-local:INBOX
+# otherwise it goes in ~/Maildir
+Inbox ~/Maildir/gatech/Inbox
+
+Channel gatech
+Master :gatech-imap:
+Slave :gatech-local:
+Patterns *
+SyncState *
+
+##############################################################################
 IMAPAccount chris@simpkins.org
 Host sub4.mail.dreamhost.com
 User chris@simpkins.org
@@ -59,6 +86,35 @@ Inbox ~/Maildir/chris@simpkins.org/Inbox
 Channel chris@simpkins.org
 Master :chris@simpkins.org-imap:
 Slave :chris@simpkins.org-local:
+Patterns *
+SyncState *
+
+##############################################################################
+IMAPAccount prost
+Host sub4.mail.dreamhost.com
+User chris@proscuba.training
+PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/chris@proscuba.training/ {print $8}'"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions SSLv3
+CertificateFile ~/certs/mail.dreamhost.com.crt
+CertificateFile ~/certs/dreamhost-ca.crt
+CertificateFile ~/certs/usertrust.crt
+CertificateFile ~/certs/addtrust.crt
+
+IMAPStore prost-imap
+Account prost
+
+MaildirStore prost-local
+# you have to manually create ~/Maildir/prost/
+Path ~/Maildir/prost/
+# Inbox required, even if one specifies  :prost-local:INBOX
+# otherwise it goes in ~/Maildir
+Inbox ~/Maildir/prost/Inbox
+
+Channel prost
+Master :prost-imap:
+Slave :prost-local:
 Patterns *
 SyncState *
 

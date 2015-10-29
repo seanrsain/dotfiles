@@ -1,6 +1,5 @@
 ;; mu4e configuration
 
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
 
 ;; acount defaults
@@ -9,14 +8,10 @@
       mu4e-trash-folder "/gmail/Trash"
       user-mail-address "chris.simpkins@gmail.com"
       mu4e-compose-signature (concat
-                              "Chris Simpkins, Lecturer\n"
-                              "College of Computing, Room 133\n"
-                              "GT Scuba Instructor, PADI # 347984\n"
-                              "Georgia Institute of Technology\n"
-                              "Mobile: 404-663-4946\n"
-                              "http://www.cc.gatech.edu/~simpkins/\n")
+                              "Chris Simpkins\n"
+                              "Mobile: 404-663-4946\n")
       message-send-mail-function 'smtpmail-send-it
-      smtpmail-auth-credentials (expand-file-name "~/.authinfo")
+      smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
       starttls-use-gnutls t
       smtpmail-stream-type 'starttls
       smtpmail-default-smtp-server "smtp.gmail.com"
@@ -29,21 +24,31 @@
   '(("gmail"
      (mu4e-sent-folder "/gmail/Sent Messages")
      (mu4e-drafts-folder "/gmail/Drafts")
-     (mu4e-trash-folder "gmail/Trash")
+     (mu4e-trash-folder "/gmail/Trash")
      (user-mail-address "chris.simpkins@gmail.com")
      (smtpmail-local-domain "gmail.com")
-     (smtpmail-smtp-server "smtp.gmail.com"))
+     (smtpmail-smtp-server "smtp.gmail.com")
+     (mu4e-compose-signature (concat
+                              "Chris Simpkins\n"
+                              "Mobile: 404-663-4946\n")))
     ("gatech"
-     (mu4e-sent-folder "/gmail/Sent Messages")
-     (mu4e-drafts-folder "/gmail/Drafts")
-     (mu4e-trash-folder "gmail/Trash")
+     (mu4e-sent-folder "/gatech/Sent Messages")
+     (mu4e-drafts-folder "/gatech/Drafts")
+     (mu4e-trash-folder "/gatech/Trash")
      (user-mail-address "chris.simpkins@gatech.edu")
      (smtpmail-local-domain "gatech.edu")
-     (smtpmail-smtp-server "mail.gatech.edu"))
+     (smtpmail-smtp-server "mail.gatech.edu")
+     (mu4e-compose-signature (concat
+                              "Chris Simpkins, Lecturer\n"
+                              "College of Computing, Room 133\n"
+                              "GT Scuba Instructor, PADI # 347984\n"
+                              "Georgia Institute of Technology\n"
+                              "Mobile: 404-663-4946\n"
+                              "http://www.cc.gatech.edu/~simpkins/\n")))
     ("prost"
-     (mu4e-sent-folder "/gmail/Sent Messages")
-     (mu4e-drafts-folder "/gmail/Drafts")
-     (mu4e-trash-folder "gmail/Trash")
+     (mu4e-sent-folder "/prost/Sent Messages")
+     (mu4e-drafts-folder "/prost/Drafts")
+     (mu4e-trash-folder "/prost/Trash")
      (user-mail-address "chris@proscuba.training")
      (smtpmail-local-domain "dreamhost.com")
      (smtpmail-smtp-server "sub4.mail.dreamhost.com")
@@ -54,6 +59,7 @@
     ("chris@simpkins.org"
      (mu4e-sent-folder "/chris@simpkins.org/Sent Messages")
      (mu4e-drafts-folder "/chris@simpkins.org/Drafts")
+     (mu4e-trash-folder "/chris@simpkins.org/Trash")
      (user-mail-address "chris@simpkins.org")
      (smtpmail-local-domain "dreamhost.com")
      (smtpmail-smtp-server "sub4.mail.dreamhost.com")
@@ -63,6 +69,7 @@
     ("management@2061kinridgetrail.com"
      (mu4e-sent-folder "/management@2061kinridgetrail.com/Sent Messages")
      (mu4e-drafts-folder "/management@2061kinridgetrail.com/Drafts")
+     (mu4e-trash-folder "/management@2061kinridgetrail.com/Trash")
      (user-mail-address "management@2061kinridgetrail.com")
      (smtpmail-local-domain "dreamhost.com")
      (smtpmail-smtp-server "sub4.mail.dreamhost.com")
@@ -80,8 +87,10 @@
 ;; the 'All Mail' folder by pressing ``ma''.
 
 (setq mu4e-maildir-shortcuts
-      '( ("/gmail/Inbox"              . ?g)
-         ("/chris@simpkins.org/Inbox" . ?s)
+      '( ("/gmail/Inbox"                            . ?g)
+         ("/gatech/Inbox"                           . ?t)
+         ("/chris@simpkins.org/Inbox"               . ?s)
+         ("/chris@proscuba.training/Inbox"          . ?p)
          ("/management@2061kinridgetrail.com/Inbox" . ?k)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -163,8 +172,8 @@
       (save-excursion
         (let*
             ((from (save-restriction
-                     (message-narrow-to-headers)
-                     (message-fetch-field "from")))
+                   (message-narrow-to-headers)
+                   (message-fetch-field "from")))
              (account
               (cond
                ((string-match "chris.simpkins@gmail.com" from)
