@@ -207,7 +207,6 @@ chflags nohidden ~/Library
 defaults write com.apple.terminal StringEncodings -array 4
 
 osascript <<EOD
-tell application "Terminal" to set the default font size to 14
 tell application "Terminal"
     local allOpenedWindows
     local initialOpenedWindows
