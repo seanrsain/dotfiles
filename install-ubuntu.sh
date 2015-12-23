@@ -2,7 +2,7 @@
 
 apt-get -y update
 apt-get -y upgrade
-sudo apt-get -y dist-upgrade
+apt-get -y dist-upgrade
 
 # Basic utilities
 apt-get -y install xserver-xorg-input-libinput
@@ -38,5 +38,6 @@ apt-get install dia
 # Clean up
 sudo apt-get autoremove
 sudo apt-get autoclean
+sudo apt-get -y update
 
 echo install-ubuntu.sh complete.
