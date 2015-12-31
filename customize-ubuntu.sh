@@ -8,10 +8,10 @@ chmod -R 775 $EMACS_SHARE
 
 echo 'export PS1="\[\033[32;1m\][\u@\h \w]\n$ \[\033[0m\]"' >> ~/.bashrc
 
-# Requires xserver-xorg-input-libinput, so be sure to run install-ubuntu.sh first
 echo 'XKBOPTIONS="ctrl:nocaps"' >> /etc/default/keyboard
 echo 'XKBOPTIONS="caps:ctrl_modifier"' >> /etc/default/keyboard
 
+# Requires xserver-xorg-input-libinput, so be sure to run install-ubuntu.sh first
 echo 'Section "InputClass"' >>
 echo '    Identifier "libinput"' >> /usr/share/X11/xorg.conf.d/99-libinput.conf
 echo '    Driver "libinput"' >> /usr/share/X11/xorg.conf.d/99-libinput.conf
