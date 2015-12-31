@@ -5,7 +5,7 @@ apt-get -y upgrade
 sudo apt-get -y dist-upgrade
 
 # Basic utilities
-apt-get -y install git
+apt-get -y install xserver-xorg-input-libinput
 apt-get -y install imagemagick
 apt-get -y install tree
 apt-get -y install webkit2png
@@ -15,6 +15,7 @@ apt-get -y install maildir-utils
 apt-get -y install mu4e
 apt-get -y install pandoc
 apt-get -y install emacs
+apt-get -y install texlive-full
 
 # Programming languages
 apt-get -y install openjdk-8-jdk
