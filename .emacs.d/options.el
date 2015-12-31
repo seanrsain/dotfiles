@@ -6,6 +6,7 @@
 (if window-system (tool-bar-mode 0))
 (if (boundp 'aquamacs-version) (tabbar-mode 0))
 (setq-default linum-format "%4d ")
+(set-scroll-bar-mode 'right)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (setq-default visual-line-fringe-indicators '(nil nil))
 (setq-default word-wrap t)
@@ -58,6 +59,13 @@
 ;; Account for size of gutter and fringes
 (add-to-list 'initial-frame-alist '(width . 88))
 (add-to-list 'default-frame-alist '(width . 88))
+
+;; From http://ubuntuforums.org/showthread.php?t=2282182
+; Hack to avoid full screen window on startup...
+(defun my:window-setup-hook ()
+  (toggle-frame-maximized)
+  (when window-system (set-frame-size (selected-frame) 44 25)))
+(setq window-setup-hook 'my:window-setup-hook)
 
 ;; Try to get rid of Aquamacs's insistence on turning on auto-fill everywhere
 ;; (turn-off-auto-fill)
