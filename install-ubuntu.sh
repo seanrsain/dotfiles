@@ -32,6 +32,7 @@ apt-get -y install ocaml
 apt-get -y install opam
 
 # Applications
+<<<<<<< 2b6efc5e94a106df43334e447485b8befcc4e1ed
 apt-get install gimp
 apt-get install dia
 
@@ -40,4 +41,11 @@ sudo apt-get autoremove
 sudo apt-get autoclean
 sudo apt-get -y update
 
+=======
+apt-get -y install gimp
+apt-get -y install dia
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+sudo apt-get -y update
+
+>>>>>>> Add -y option to gimp and dia installs
 echo install-ubuntu.sh complete.
