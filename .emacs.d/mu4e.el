@@ -1,5 +1,7 @@
 ;; mu4e configuration
 
+(add-to-list 'load-path "/usr/share/emacs24/site-lisp/mu4e/")
+
 (require 'mu4e)
 
 ;; acount defaults
