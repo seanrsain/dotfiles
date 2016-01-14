@@ -15,6 +15,7 @@ apt-get -y install maildir-utils
 apt-get -y install mu4e
 apt-get -y install pandoc
 apt-get -y install emacs
+apt-get -y install ispell
 apt-get -y install texlive-full
 
 # Programming languages
