@@ -1,6 +1,10 @@
 ;; mu4e configuration
 
-(add-to-list 'load-path "/usr/share/emacs24/site-lisp/mu4e/")
+(when (string= system-type "darwin")
+  (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e"))
+
+(when (string= system-type "gnu/linux")
+  (add-to-list 'load-path "/usr/share/emacs24/site-lisp/mu4e/"))
 
 (require 'mu4e)
 
