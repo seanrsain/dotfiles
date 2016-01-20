@@ -6,7 +6,6 @@ brew update
 brew upgrade
 
 # Basic command line utilities
-brew install git
 brew install node
 brew install wget --with-iri
 brew install imagemagick --with-webp
@@ -22,8 +21,12 @@ brew install pandoc
 # See https://github.com/railwaycat/homebrew-emacsmacport
 brew tap railwaycat/emacsmacport
 brew install emacs-mac
+brew linkapps emacs-mac
+brew install mu --with-emacs --HEAD
 
 # Programming languages
+brew cask install java
+brew install gradle
 brew install scala
 brew install sbt
 brew install typesafe-activator
@@ -31,17 +34,7 @@ brew install scalastyle
 brew install ocaml
 brew install opam
 
-# Os X GUI apps
-brew install caskroom/cask/brew-cask
-brew cask install aquamacs
-brew cask install dropbox
-brew cask install firefox
-brew cask install google-chrome
-brew cask install google-drive
-brew cask install google-hangouts
-brew cask install virtualbox
-brew cask install vlc
-brew cask install handbrake
+# Big one ...
 brew cask install mactex
 
 # Remove outdated versions from the cellar.
