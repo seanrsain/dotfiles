@@ -58,40 +58,9 @@
 (setq-default mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq-default scroll-step 1) ;; keyboard scroll one line at a time
 
-(defvar-local desired-width 88)
-(defvar-local desired-height 50)
-
 ;; Account for size of gutter and fringes
-(add-to-list 'initial-frame-alist '(width . desired-width))
-(add-to-list 'default-frame-alist '(width . desired-width))
-
-
-;; Based on code from http://ubuntuforums.org/showthread.php?t=2282182
-;; Hack to avoid full screen on startup on hidpi screen with high scale factor
-(defun toggle-fullscreen-x11 ()
-  "Toggle full screen on X11"
-  (interactive)
-  (when (eq window-system 'x)
-    (set-frame-parameter
-     nil 'fullscreen
-     (when (not (frame-parameter nil 'fullscreen)) 'fullboth))))
-
-(defun my:window-setup-hook ()
-  (toggle-frame-maximized)
-  (when (and (string= system-type "gnu/linux") window-system)
-    (let* ((dconf-entry
-            (shell-command-to-string
-             "dconf read /com/ubuntu/user-interface/scale-factor"))
-           (scale-factor (progn (string-match "'eDP1': \\([0-9]+\\)[,\}]"
-                                              dconf-entry)
-                                (string-to-int (match-string 1 dconf-entry))))
-           ;; text-width of 88 to make room for gutter and fringes
-           (text-width (truncate (/ desired-width (/ scale-factor 8.0))))
-           (text-height (truncate (/ desired-height (/ scale-factor 8.0)))))
-      (message "set-frame-size is %dx%d, scale-factor is %s"
-               text-width text-height scale-factor)
-      (set-frame-size (selected-frame) text-width text-height))))
-(setq window-setup-hook 'my:window-setup-hook)
+(add-to-list 'initial-frame-alist '(width . 88))
+(add-to-list 'default-frame-alist '(width . 88))
 
 ;; Graphviz dot language
 (org-babel-do-load-languages
