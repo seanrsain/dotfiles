@@ -15,8 +15,6 @@
 (delete-selection-mode 1)
 (setq-default ispell-program-name "/usr/local/bin/ispell")
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'shell-mode-hook (lambda () (set-background-color "black")))
-
 
 ;; UTF-8 everywhere
 (prefer-coding-system 'utf-8)
