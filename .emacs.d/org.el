@@ -5,3 +5,8 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
+
+;; Graphviz dot language
+(org-babel-do-load-languages
+     'org-babel-load-languages
+     '((dot . t)))

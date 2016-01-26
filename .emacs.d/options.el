@@ -1,3 +1,5 @@
+;; Customization for stuff built-in to Emacs
+
 ;; Basics
 (set-face-attribute 'default nil :height 140)
 (setq-default visible-bell 1)
@@ -59,8 +61,3 @@
 ;; Account for size of gutter and fringes
 (add-to-list 'initial-frame-alist '(width . 88))
 (add-to-list 'default-frame-alist '(width . 88))
-
-;; Graphviz dot language
-(org-babel-do-load-languages
-     'org-babel-load-languages
-     '((dot . t)))

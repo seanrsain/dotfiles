@@ -1,3 +1,5 @@
+;; Packages from package managers and customizations
+
 ;; MELPA package manager
 (require 'package)
 
@@ -34,8 +36,6 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-;(require 'graphviz-dot-mode)
-
 (require 'git-gutter-fringe+)
 (if window-system (global-git-gutter+-mode t))
 
@@ -61,3 +61,7 @@
 (yas-global-mode 1)
 
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; graphviz-dot-mode customizations
+(require 'graphviz-dot-mode)
+(setq graphviz-dot-auto-indent-on-semi nil)
