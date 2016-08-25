@@ -61,6 +61,7 @@
 (yas-global-mode 1)
 
 (add-hook 'after-init-hook 'global-company-mode)
+(setq-default company-idle-delay 2)
 
 ;; graphviz-dot-mode customizations
 (require 'graphviz-dot-mode)

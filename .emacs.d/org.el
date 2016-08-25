@@ -6,6 +6,8 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(setq-default org-support-shift-select 1)
+
 ;; Graphviz dot language
 (org-babel-do-load-languages
      'org-babel-load-languages
