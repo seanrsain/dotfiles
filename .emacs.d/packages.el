@@ -6,24 +6,29 @@
 ;; Override the various installed Emacsen so all versions and users can share
 (setq package-user-dir "/usr/local/share/emacs/elpa")
 
-(add-to-list 'package-archives
-         '("melpa" . "http://melpa.org/packages/") t)
+(setq
+ package-archives '(("org" . "http://orgmode.org/elpa/")
+                    ("melpa" . "http://melpa.org/packages/")
+                    ("melpa-stable" . "http://stable.melpa.org/packages/")))
+
 (package-initialize)
-
 (when (not package-archive-contents)
-  (package-refresh-contents))
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-(setq package-list
-      '(ensime
-        yasnippet
-        company
-        expand-region
-        multiple-cursors
-        graphviz-dot-mode
-        magit
-        git-gutter-fringe+))
 
-(mapc 'package-install package-list)
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+(use-package yasnippet :demand)
+(use-package company :demand)
+(use-package expand-region :demand)
+(use-package multiple-cursors :demand)
+(use-package graphviz-dot-mode :demand)
+(use-package magit :demand)
+(use-package git-gutter-fringe+ :demand)
+
+(use-package ensime :pin melpa-stable)
 
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
