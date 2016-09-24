@@ -59,6 +59,7 @@
 (setq-default mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq-default scroll-step 1) ;; keyboard scroll one line at a time
 
-;; Account for size of gutter and fringes
-(add-to-list 'initial-frame-alist '(width . 88))
-(add-to-list 'default-frame-alist '(width . 88))
+;; Wider than 80 for general editing, e.g., org-mode tables. Use
+;; fill-column-indicator for programming modes
+(add-to-list 'initial-frame-alist '(width . 96))
+(add-to-list 'default-frame-alist '(width . 96))
