@@ -44,3 +44,14 @@
       (message "set-frame-size is %dx%d, scale-factor is %s"
                text-width text-height scale-factor)
       (set-frame-size (selected-frame) text-width text-height))))
+
+(defun hacking-mode ()
+  (interactive)
+  (delete-other-windows)
+  (set-frame-size (selected-frame) 200 (window-total-height))
+  (split-window-right)
+  (other-window 1)
+  (split-window-below)
+  (other-window 1)
+  (shell)
+  (other-window 1))
