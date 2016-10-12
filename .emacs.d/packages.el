@@ -26,6 +26,7 @@
 (use-package multiple-cursors :demand)
 (use-package graphviz-dot-mode :demand)
 (use-package magit :demand)
+(use-package git-gutter-fringe+ :demand)
 (use-package fill-column-indicator :demand)
 
 (use-package ensime :pin melpa-stable)
