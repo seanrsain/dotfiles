@@ -69,15 +69,13 @@
 (add-to-list 'default-frame-alist '(width . desired-width))
 
 (defun my:window-setup-hook ()
-  (toggle-frame-maximized)
   (when (and (string= system-type "gnu/linux") window-system)
     (let* ((dconf-entry
             (shell-command-to-string
              "dconf read /com/ubuntu/user-interface/scale-factor"))
-           (scale-factor (progn (string-match "'eDP1': \\([0-9]+\\)[,\}]"
+           (scale-factor (progn (string-match "'[eD][FD]P1': \\([0-9]+\\)[,\}]"
                                               dconf-entry)
                                 (string-to-int (match-string 1 dconf-entry))))
-           ;; text-width of 88 to make room for gutter and fringes
            (text-width (truncate (/ desired-width (/ scale-factor 8.0))))
            (text-height (truncate (/ desired-height (/ scale-factor 8.0)))))
       (message "set-frame-size is %dx%d, scale-factor is %s"
