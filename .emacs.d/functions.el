@@ -49,4 +49,5 @@
   (interactive)
   (delete-other-windows)
   (set-frame-size (selected-frame) 200 (window-total-height))
-  (split-window-right))
+  (split-window-right)
+  (neotree-project-dir))
