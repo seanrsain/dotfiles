@@ -1,3 +1,11 @@
+;; From https://www.emacswiki.org/emacs/ElispCookbook#toc6
+(defun chomp (str)
+      "Chomp leading and tailing whitespace from STR."
+      (replace-regexp-in-string (rx (or (: bos (* (any " \t\n")))
+                                        (: (* (any " \t\n")) eos)))
+                                ""
+                                str))
+
 ;; From http://www.emacswiki.org/emacs/UnfillRegion
 (defun unfill-region (beg end)
       "Unfill the region, joining text paragraphs into a single

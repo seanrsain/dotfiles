@@ -16,7 +16,7 @@
 (setq-default column-number-mode t)
 (show-paren-mode 1)
 (delete-selection-mode 1)
-(setq-default ispell-program-name "/usr/local/bin/ispell")
+(setq-default ispell-program-name (chomp (shell-command-to-string "which ispell")))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; UTF-8 everywhere
