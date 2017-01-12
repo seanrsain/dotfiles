@@ -59,15 +59,6 @@
 (setq-default mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq-default scroll-step 1) ;; keyboard scroll one line at a time
 
-;; Wider than 80 for general editing, e.g., org-mode tables. Use
-;; fill-column-indicator for programming modes
-(defvar-local desired-width 96)
-(defvar-local desired-height 30)
-
-;; Account for size of gutter and fringes
-(add-to-list 'initial-frame-alist '(width . desired-width))
-(add-to-list 'default-frame-alist '(width . desired-width))
-
 (defun my:window-setup-hook ()
   (when (and (string= system-type "gnu/linux") window-system)
     (toggle-frame-maximized)
@@ -77,8 +68,8 @@
            (scale-factor (progn (string-match "'[eD][FD]P1': \\([0-9]+\\)[,\}]"
                                               dconf-entry)
                                 (string-to-int (match-string 1 dconf-entry))))
-           (text-width (truncate (/ desired-width (/ scale-factor 8.0))))
-           (text-height (truncate (/ desired-height (/ scale-factor 8.0)))))
+           (text-width (truncate (/ 96 (/ scale-factor 8.0))))
+           (text-height (truncate (/ 50 (/ scale-factor 8.0)))))
       (message "set-frame-size is %dx%d, scale-factor is %s"
                text-width text-height scale-factor)
       (set-frame-size (selected-frame) text-width text-height))))
