@@ -59,6 +59,11 @@
 (setq-default mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq-default scroll-step 1) ;; keyboard scroll one line at a time
 
+;; Wider than 80 for general editing, e.g., org-mode tables. Use
+;; fill-column-indicator for programming modes
+(add-to-list 'initial-frame-alist '(width . 96))
+(add-to-list 'default-frame-alist '(width . 96))
+
 (defun my:window-setup-hook ()
   (when (and (string= system-type "gnu/linux") window-system)
     (toggle-frame-maximized)
