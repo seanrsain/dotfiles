@@ -3,6 +3,6 @@
 	email = seanrsain@gmail.com
 [core]
 	editor = emacs
-	excludesfile = /home/chris/.gitignore
+	excludesfile = /home/seanrsain/.gitignore
 [push]
 	default = simple
